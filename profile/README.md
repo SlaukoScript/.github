@@ -15,8 +15,6 @@ One dashboard. Two platforms. Zero tolerance for chaos.
 
 ---
 
-</div>
-
 ### What is SlaukoScript?
 
 SlaukoScript is a modular community infrastructure platform that unifies moderation, reputation, and automation across **Discord** and **Twitch** — managed from a single web dashboard.
@@ -85,8 +83,6 @@ SlaukoScript is a modular community infrastructure platform that unifies moderat
 `Nuxt 4` `Vue 3` `TypeScript` `Drizzle ORM` `PostgreSQL` `Redis` `BullMQ` `Discord.js` `Twurple` `Stripe` `Docker`
 
 ---
-
-<div align="center">
 
 _Built by [slauko](https://github.com/slauko)_
 
