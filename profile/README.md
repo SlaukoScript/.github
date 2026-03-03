@@ -23,11 +23,11 @@ It combines a Nuxt dashboard, Fastify API, queue-driven worker, and platform bot
 
 ### Current architecture
 
-- **Monorepo runtime:** Turbo + pnpm workspaces on Node.js 22+ and TypeScript 5.9
-- **Apps:** `web`, `api`, `worker`, `discord`, `twitch`
-- **Shared packages:** `engine`, `contracts`, `db`, `redis`, `config`, `logger`, `bot-common`
-- **Core infra:** PostgreSQL 17, Redis 7, BullMQ, Docker, GHCR-based deployment
-- **Quality gates:** CI runs lint, typecheck, tests, build, and boundary validation
+**Monorepo runtime:** Turbo + pnpm workspaces on Node.js 22+ and TypeScript 5.9  
+**Apps:** `web`, `api`, `worker`, `discord`, `twitch`  
+**Shared packages:** `engine`, `contracts`, `db`, `redis`, `config`, `logger`, `bot-common`  
+**Core infra:** PostgreSQL 17, Redis 7, BullMQ, Docker, GHCR-based deployment  
+**Quality gates:** CI runs lint, typecheck, tests, build, and boundary validation
 
 ### Core Features
 
