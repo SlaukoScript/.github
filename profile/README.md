@@ -5,9 +5,9 @@
 <br />
 <br />
 
-**Cross-platform community operations for Discord and Twitch**
+**A modular product suite built on Nuxt 4**
 
-One dashboard. Five services. Shared engine.
+Three apps. One shared layer. Ship fast.
 
 [![Website](https://img.shields.io/badge/Website-slaukoscript.com-F97316?style=for-the-badge&logo=googlechrome&logoColor=white)](https://slaukoscript.com)
 [![Discord](https://img.shields.io/badge/Discord-Join%20Us-5865F2?style=for-the-badge&logo=discord&logoColor=white)](https://discord.gg/nVGAfRg8Md)
@@ -17,80 +17,73 @@ One dashboard. Five services. Shared engine.
 
 ### What SlaukoScript is
 
-SlaukoScript is a modular platform for community safety and operations across **Discord** and **Twitch**.
+SlaukoScript is a product suite powering community tools and personal productivity apps — all built from a single Nuxt 4 monorepo with a shared UI layer.
 
-It combines a Nuxt dashboard, Fastify API, queue-driven worker, and platform bots into one consistent system.
-
-### Current architecture
-
-**Monorepo runtime:** Turbo + pnpm workspaces on Node.js 22+ and TypeScript 5.9  
-**Apps:** `web`, `api`, `worker`, `discord`, `twitch`  
-**Shared packages:** `engine`, `contracts`, `db`, `redis`, `config`, `logger`, `bot-common`  
-**Core infra:** PostgreSQL 17, Redis 7, BullMQ, Docker, GHCR-based deployment  
-**Quality gates:** CI runs lint, typecheck, tests, build, and boundary validation
-
-### Core Features
+### Products
 
 <table>
 <tr>
-<td width="50%" valign="top">
+<td width="33%" valign="top">
 
-**Moderation**
+**🌐 SlaukoScript**
+<br />
+[slaukoscript.com](https://slaukoscript.com)
 
-- Trust-aware AutoMod with smart filtering
-- Strike escalation with configurable thresholds
-- Mod queue for content review
-- Ban appeal system with SLA tracking
-- Cross-platform ban sync
+Main landing page and product hub. Entry point for the entire platform.
 
 </td>
-<td width="50%" valign="top">
+<td width="33%" valign="top">
 
-**Community**
+**🛡️ Moderation**
+<br />
+[mod.slaukoscript.com](https://mod.slaukoscript.com)
 
-- XP & reputation system with leaderboards
-- Role rewards & auto-roles
-- Custom commands with permission levels
-- Scheduled & timed messages
-
-</td>
-</tr>
-<tr>
-<td width="50%" valign="top">
-
-**Safety**
-
-- Raid detection with automatic response tiers
-- Real-time moderation log & live feed
-- Cross-platform account linking
-- Configurable trust scores
+Cross-platform moderation for Discord and Twitch. Dashboard with real-time feeds, analytics, AutoMod, strikes, ban appeals, and automation.
 
 </td>
-<td width="50%" valign="top">
+<td width="33%" valign="top">
 
-**Automation & Integration**
+**💪 GymTrack**
+<br />
+[gym.slaukoscript.com](https://gym.slaukoscript.com)
 
-- Rule-based automation engine
-- REST API with rate limiting & webhooks
-- Queue-backed background processing
-- Stripe-powered subscription billing
+Personal gym tracking PWA. Log workouts offline, track progress with charts, and sync when connected.
 
 </td>
 </tr>
 </table>
 
-### Platform Status
+### Architecture
 
-| Surface           |         Status          | Notes                                                                 |
-| :---------------- | :---------------------: | :-------------------------------------------------------------------- |
-| **Discord Bot**   | :white_check_mark: Live | Moderation, automation, reputation, and command workflows             |
-| **Twitch Bot**    | :white_check_mark: Live | EventSub-driven moderation and chat operations                        |
-| **Web Dashboard** | :white_check_mark: Live | Unified operations UI at [slaukoscript.com](https://slaukoscript.com) |
-| **API + Worker**  | :white_check_mark: Live | Fastify endpoints + BullMQ processing for async workloads             |
+**Monorepo runtime:** Turbo + pnpm workspaces on Node.js 22+ and TypeScript 5.9
+
+**Apps:**
+| App | Domain | Description |
+|-----|--------|-------------|
+| `web` | slaukoscript.com | Product suite landing page |
+| `moderation` | mod.slaukoscript.com | Moderation dashboard & bot management |
+| `gymtrack` | gym.slaukoscript.com | Gym tracking PWA |
+
+**Shared packages:**
+| Package | Purpose |
+|---------|---------|
+| `ui` | Nuxt layer — all generic components, composables, layouts, modules, and styling |
+| `core` | Shared types, validation schemas, errors, and utilities |
+| `server` | Auth, middleware, Redis, logger, and API client |
+| `tooling` | Test utilities and build configuration |
+
+**Infrastructure:** PostgreSQL, Redis, Docker, VPS with Nginx Proxy Manager
+
+### Key Design Decisions
+
+- **`packages/ui` is the single Nuxt layer** — every generic component, composable, layout, plugin, and module lives here. Apps are thin domain-specific consumers.
+- **Apps share identical wiring** — same `app.vue` structure, same layout approach, same module set. Style changes are atomic across the entire platform.
+- **No re-exports, no wrappers** — apps import directly from the shared layer with zero boilerplate.
+- **PWA + offline-first** — GymTrack works fully offline via service workers and IndexedDB.
 
 ### Tech Stack
 
-`Nuxt 4` `Vue 3` `TypeScript` `Fastify` `Drizzle ORM` `PostgreSQL` `Redis` `BullMQ` `Discord.js` `Twurple` `Stripe` `Docker` `GitHub Actions`
+`Nuxt 4` `Vue 3` `TypeScript 5.9` `Turbo` `pnpm` `Nuxt UI` `Tailwind CSS` `Pinia` `ECharts` `i18n` `Sentry` `PWA` `PostgreSQL` `Redis` `Docker`
 
 ---
 
