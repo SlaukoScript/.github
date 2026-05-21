@@ -72,11 +72,11 @@ After [Axis 2 decomposition](https://github.com/SlaukoScript/docs/blob/main/docs
         │  server tooling ui  │     to GitHub Packages on every merge
         └──────────┬──────────┘
                    │ consumers pin to ^snapshots
-       ┌───────────┼──────────────────────────────┐
-       │           │                              │
-   ┌───┴───┐   ┌───┴───┐   ┌────────┐   ┌─────────┴────────┐
+       ┌───────────┼───────────────────────────────┐
+       │           │                               │
+   ┌───┴───┐   ┌───┴────┐  ┌──────────┐  ┌─────────┴────────┐
    │  ai   │   │gymtrack│  │moderation│  │       web        │
-   └───┬───┘   └───┬───┘   └────┬────┘   └─────────┬────────┘
+   └───┬───┘   └───┬────┘  └────┬─────┘  └─────────┬────────┘
        │           │            │                  │
        └───────────┴─── ghcr.io/slaukoscript/<app> ┘
                               │
