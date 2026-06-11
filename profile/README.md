@@ -69,7 +69,7 @@ After [Axis 2 decomposition](https://github.com/SlaukoScript/docs/blob/main/docs
         ┌─────────────────────┐
         │     packages        │  ← shared TypeScript libraries
         │  core platform      │     publishes 0.0.0-<sha>-snapshot
-        │  server tooling ui  │     to GitHub Packages on every merge
+        │  server tooling ui  │     to the self-hosted registry on every merge
         └──────────┬──────────┘
                    │ consumers pin to ^snapshots
        ┌───────────┼───────────────────────────────┐
@@ -91,7 +91,7 @@ A separate [`daemon`](https://github.com/SlaukoScript/daemon) sweeps every repo 
 
 | Repo | Role | Stack |
 |---|---|---|
-| [`packages`](https://github.com/SlaukoScript/packages) | Shared TS libraries (`core`, `platform`, `server`, `tooling`, `ui`). Publishes snapshots to GitHub Packages. | pnpm + Turbo |
+| [`packages`](https://github.com/SlaukoScript/packages) | Shared TS libraries (`core`, `platform`, `server`, `tooling`, `ui`). Publishes snapshots to the self-hosted registry. | pnpm + Turbo |
 | [`ai`](https://github.com/SlaukoScript/ai) | AI-scope monorepo — 3 packages (`ai-{agent,client,providers}`) + 3 apps (`chat`, `cli`, `gateway`) | pnpm + Turbo, Nuxt 4, Nitro |
 | [`gymtrack`](https://github.com/SlaukoScript/gymtrack) | Gym tracking PWA — offline-first, IndexedDB + service workers | Nuxt 4, Nitro, Postgres, sharp |
 | [`moderation`](https://github.com/SlaukoScript/moderation) | Discord/Twitch moderation dashboard + bots | Nuxt 4, Nitro, Postgres, Redis |
@@ -112,7 +112,7 @@ For shared-package changes: push to `packages/main` → snapshot publish workflo
 
 ## Tech stack
 
-`Nuxt 4` `Vue 3` `TypeScript 5.9` `pnpm` `Turbo` `Nuxt UI` `Tailwind CSS 4` `Pinia` `ECharts` `i18n` `Sentry` `PWA` `PostgreSQL 17` `Redis 7` `Docker` `Nginx Proxy Manager` `Self-hosted GitHub Actions` `GitHub Packages` `GHCR`
+`Nuxt 4` `Vue 3` `TypeScript 5.9` `pnpm` `Turbo` `Nuxt UI` `Tailwind CSS 4` `Pinia` `ECharts` `i18n` `Sentry` `PWA` `PostgreSQL 17` `Redis 7` `Docker` `Nginx Proxy Manager` `Self-hosted GitHub Actions` `Self-hosted npm registry` `GHCR`
 
 ---
 
